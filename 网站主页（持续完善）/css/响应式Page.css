@@ -1,0 +1,95 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "PingFang SC","Microsoft Yahei",sans-serif;
+}
+header{
+	  /*1.vw：1vw等于视口宽度的1%。
+      2.vh：1vh等于视口高度的1%。
+      3.vmin：选取vw和vh中最小的那个。
+      4.vmax：选取vw和vh中最大的那个。*/
+	width: 100vw;
+	height: 100vh;
+	background-image: url(../img/轮播图2.jpg);
+	background-size: cover;
+}
+
+nav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 5vw;/*设置内边距*/
+	height: 80px;
+	background-color:rgba(65,81,101,0.5);/*通过rgba方式设置背景颜色透明度，可以设置背景颜色透明而文字不透明，但是这种方法的兼容性不好，不兼容ie浏览器*/
+	
+}
+
+.logo{
+	font-size: 30px;
+	font-weight: 700;
+	color: white;
+	flex: 1;
+}
+.menu{
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	
+	max-width: 550px;/*间接调整导航栏项间距*/
+}
+
+.menu li{
+	list-style: none;
+	color: white;
+	font-weight:600 ;	
+}
+
+	.drawer div{
+		width: 25px;
+		height: 3px;
+		background-color: white;
+		margin: 4px;
+	}
+
+	.drawer{
+		display: none;
+	}
+
+
+@media screen and (max-width: 768px) {
+	.menu{
+		position: absolute;
+		top:80px;
+		right: 0;
+		bottom: 0;
+		width: 30vw;
+		height: 100vh;/*浏览器的高度-导航菜单的高度*/
+		background-color:rgba(65,81,101,0.5);
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		
+		/*使其默认不显示*/
+		transform: translateX(100%);//水平移动
+		transition: 0.4s ease-in-out;
+	}
+	
+	.menu.open{
+		transform: translateX(0);
+	}
+	
+	.menu li{
+		margin: 3vh;
+	}
+	.drawer{
+		display: block;
+	}
+
+
+}
